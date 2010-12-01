@@ -1,0 +1,27 @@
+LICENSE
+
+The work is released under the GPL
+
+PREREQUISITES
+
+A working RT 3.8 installation. (3.8.1 or greater) and AT 1.2.5
+
+INSTALLATION
+
+Please make a backup of your RT installation and database!
+
+$ RTHOME=/path/to/rt perl Makefile.PL
+$ make
+$ make install
+$ make initdb
+
+Add RTx::AssetTracker::QuickSearch to your Plugins in etc/RT_SiteConfig.pm and restart your web server.
+
+AUTHOR
+
+Todd Chapman
+todd@chaka.net
+
+PROPS
+
+Thanks to Jesse and Best Practical for giving me something to stand on.
