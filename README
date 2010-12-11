@@ -2,6 +2,14 @@ LICENSE
 
 The work is released under the GPL
 
+DESCRIPTION
+
+This extension to Asset Tracker adds a configurable asset quick search that
+is available in the "RT at a glance" area of preferences. Each asset type
+is assigned a value in a "Category" custom field. An asset quick search
+component is added to RT at a glance for each category. This results in one
+quick search for each category of assets.
+
 PREREQUISITES
 
 A working RT 3.8 installation. (3.8.1 or greater) and AT 1.2.5
@@ -16,6 +24,8 @@ $ make install
 $ make initdb
 
 Add RTx::AssetTracker::QuickSearch to your Plugins in etc/RT_SiteConfig.pm and restart your web server.
+Then, create a "Category" custom field of type, Enter one value. The custom field name is
+configurable in local/plugins/RTx-AssetTracker-QuickSearch/etc/ATQS_SiteConfig.pm.
 
 AUTHOR
 
@@ -25,3 +35,4 @@ todd@chaka.net
 PROPS
 
 Thanks to Jesse and Best Practical for giving me something to stand on.
+Thanks to Torsten Brumm and Kuehne + Nagel for commisioning this work.
