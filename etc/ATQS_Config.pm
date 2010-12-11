@@ -1,3 +1,3 @@
-#Set ($ATQS_CF, 0);
+Set ($AssetTrackerQuickSearchCustomField, 'Category');
 
 1;

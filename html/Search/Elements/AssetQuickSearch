@@ -84,7 +84,7 @@ my %count;
 my @types = ();
 while (my $type = $Types->Next) {
        next unless ($type->CurrentUserHasRight('ShowAsset'));
-       next unless $type->FirstCustomFieldValue('Category') eq $Category;
+       next unless $type->FirstCustomFieldValue(RT->Config->Get('AssetTrackerQuickSearchCustomField')) eq $Category;
        foreach my $status ($type->ActiveStatusArray) {
            $status{$status} = 1;
 

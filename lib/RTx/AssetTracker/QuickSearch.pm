@@ -34,20 +34,20 @@ sub remove_quicksearch {
 }
 
 sub add_quicksearch {
-    my ($class, $category, $loc) = @_;
+    my ($class, $category) = @_;
 
     #warn "Add asset quick search for $category";
     #if quicksearch doesn't exist, create it
-    return $class->search_exists($category) || $class->create_search($category, $loc);
+    return $class->search_exists($category) || $class->create_search($category);
 }
 
 sub create_search {
-    my ($class, $category, $loc) = @_;
+    my ($class, $category) = @_;
 
     my $search = RTx::AssetTracker::AssetQuickSearch->new($RT::SystemUser);
     my ($status, $msg) = $search->Save(
             Privacy      => $class->privacy_string,
-            Name         => "$category " . $loc->("Quick search"),
+            Name         => "$category Quick search",
             SearchParams => { Category => $category },
     );
 

@@ -20,11 +20,13 @@ sub _AddCustomFieldValue {
     my $remove = undef;
     my $add = undef;
 
+    my $category = RT->Config->Get('AssetTrackerQuickSearchCustomField');
+
     my $cf = $self->LoadCustomFieldByIdentifier($args{'Field'});
     if ($cf->LookupType eq 'RTx::AssetTracker::Type' &&
-        $cf->Name eq 'Category') {
+        $cf->Name eq $category) {
 
-        $remove = $self->FirstCustomFieldValue('Category');
+        $remove = $self->FirstCustomFieldValue($category);
     }
 
     my ($new_value_id, $msg) = $self->SUPER::_AddCustomFieldValue(@_);
@@ -54,11 +56,13 @@ sub DeleteCustomFieldValue {
 
     my $remove = undef;
 
+    my $category = RT->Config->Get('AssetTrackerQuickSearchCustomField');
+
     my $cf = $self->LoadCustomFieldByIdentifier($args{'Field'});
     if ($cf->LookupType eq 'RTx::AssetTracker::Type' &&
-        $cf->Name eq 'Category') {
+        $cf->Name eq $category) {
 
-        $remove = $self->FirstCustomFieldValue('Category');
+        $remove = $self->FirstCustomFieldValue($category);
     }
 
     my ($trans_id, $msg) = $self->SUPER::DeleteCustomFieldValue(@_);
